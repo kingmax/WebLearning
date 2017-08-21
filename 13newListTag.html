@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13 new list tag</title>
+</head>
+<body>
+    <form autocomplete="on">
+        <input type="text" list="mylist">
+        <datalist id="mylist">
+            <option>aaa</option>
+            <option>bab</option>
+            <option>cac</option>
+            <option>a</option>
+            <option>b</option>
+            <option>c</option>
+            <option>aa</option>
+            <option>bb</option>
+            <option>cc</option>
+        </datalist>
+    </form>
+
+    <input type="text" autofocus="autofocus">
+
+    <form action="index.aspx" method="post" id="idForm">
+        <input type="text" name="UserName">
+        <input type="submit">
+    </form>
+
+    <input type="password" form="idForm">
+
+    <form action="in.aspx" method="pos" id="idForm2">
+        <input type="text" name="userName">
+        <input type="password" name="pwd" formaction="index2.aspx">
+        <input type="reset">
+        <input type="submit">
+    </form>
+</body>
+</html>
