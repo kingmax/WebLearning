@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef642ea6-bf4e-46c7-b6e3-62b58bf14ddb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/10_audio_video.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11h5_new_tag.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/12newformele.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/13newListTag.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/14list_new_tag2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/15 webstorage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="ef642ea6-bf4e-46c7-b6e3-62b58bf14ddb" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -251,7 +243,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="809" y="0" width="564" height="775" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11861314" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>webstorage board</title>
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+        $(function ()
+            {
+                if (localStorage.getItem("k_txt" != null))
+                {
+                    "k_msg", $("#msg").html(localStorage.getItem("k_msg"));
+                }
+            }
+        );
+
+        function publish()
+        {
+            var txt = $("#txt").val();
+            $("#msg").append("<div>" + txt + "</div>");
+            localStorage.setItem("k_txt", $("#msg").html());
+        }
+
+        function clear()
+        {
+            $("#msg").html("");
+            localStorage.clear();
+        }
+
+    </script>
+</head>
+<body>
+    <div><textarea id="txt" cols="30" rows="8"></textarea></div>
+    <div><input type="button" value="publish" onclick="publish()" /> <input type="button" value="clear" onclick="clear()" /></div>
+    <div id="msg"></div>
+</body>
+</html>

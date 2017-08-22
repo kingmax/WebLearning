@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Web Storage</title>
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+        function saveClick()
+        {
+            var username = $("#txtUserName").val();
+            var pwd = $("txtPwd").val();
+            //sessionStorage.setItem("k_username", username);
+            //sessionStorage.setItem("k_pwd", pwd);
+            localStorage.setItem("k_username", username);
+            localStorage.getItem("k_pwd", pwd);
+            alert("save success!");
+        }
+
+        function readClick()
+        {
+            var username = localStorage.getItem("k_username"); //sessionStorage.getItem("k_username");
+            var pwd = localStorage.getItem("k_pwd");//sessionStorage.getItem("k_pwd");
+            alert(username + ", " + pwd);
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txtUserName" />
+    <input type="password" id="txtPwd" />
+    <input type="button" value="Save" onclick="saveClick()" />
+    <input type="button" value="Read" onclick="readClick()" />
+</body>
+</html>
