@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<p lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的第一个PHP页面</title>
+</head>
+<body>
+    <?php
+        echo "<p>Hello World!</p>";
+
+        $x = 5;
+        $y = 6;
+        $z = $x+$y;
+        echo $z;
+        echo "<br>";
+
+        $g = 10;
+        function myTest()
+        {
+            $L = 20;
+            echo "<p>测试函数内部的变量: </p>";
+            echo "变量 g 是： $g";
+            echo "<br>";
+            echo "变量 L 是： $L";
+        }
+        myTest();
+
+        echo "<p>测试函数之外的变量：</p>";
+        echo "变量 g 是： $g";
+        echo "<br>";
+        echo "变量 L 是： $L";
+    ?>
+    <p>
+        <?php
+            $x = 5;
+            $y = 10;
+            function myTest2()
+            {
+                global $x, $y;
+                $y = $x+$y;
+            }
+
+            myTest2();
+            echo $y;
+            echo "<br>";
+
+            $GLOBALS['y'] = $GLOBALS['x'] + $GLOBALS['y'];
+            echo $y;
+
+            function myTest3()
+            {
+                static $s = 0;
+                echo $s;
+                echo "<br>";
+                $s++;
+            }
+            myTest3();
+            myTest3();
+            myTest3();
+        ?>
+    </p>
+
+</body>
+</html>

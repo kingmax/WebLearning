@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_POST</title>
+</head>
+<body>
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+        Name: <input type="text" name="username">
+        <input type="submit">
+    </form>
+
+    <?php
+        $uname = $_POST['username'];
+        echo $uname;
+    ?>
+
+    <a href="get_test.php?subject=PHP&web=w3c.com">测试 $GET</a>
+</body>
+</html>

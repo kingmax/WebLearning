@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PHP $_Request</title>
+</head>
+<body>
+
+    <form mothod="post", action="<?php echo $_SERVER['PHP_SELF'];?>">
+        Name: <input type="text" name="fname">
+        <input type="submit">
+    </form>
+
+    <?php
+       $name = $_REQUEST['fname'];
+       if($name != NULL)
+       {
+            echo "name is " . $name;
+       }
+       else
+       {
+            echo "Name is NULL";
+        }
+    ?>
+
+</body>
+</html>
