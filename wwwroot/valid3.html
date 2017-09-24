@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Valid input3</title>
+    <style>
+        .error {color:#ff0000;}
+    </style>
+</head>
+<body>
+    <?php
+        $name = $mail = $web = $comment = $gender = "";
+        $nameErr = $mailErr = $webErr = $genderErr = "";
+
+        function valid($input)
+        {
+            $out = trim($input);
+            $out = stripSlashes($out);
+            $out = htmlSpecialChars($out);
+            return $out;
+        }
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+            if(empty($_POST['name']))
+            {
+                $nameErr = 'Name is required.';
+            }
+            else
+            {
+                $name = valid($_POST['name']);
+                if(!preg_match("/^[a-zA-Z ]*$/", $name))
+                {
+                    $nameErr = 'Only letters and white space allowed';
+                }
+            }
+
+            if(empty($_POST['mail']))
+            {
+                $mailErr = 'Email is required.';
+            }
+            else
+            {
+                $mail = valid($_POST['mail']);
+                if(!preg_match("/([\w\-]+@[\w\-]+.[\w\-]+)/", $mail))
+                {
+                    $mailErr = 'Invalid email format';
+                }
+            }
+
+            if(empty($_POST['web']))
+            {
+                $web = "";
+            }
+            else
+            {
+                $web = valid($_POST['web']);
+                if(!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%
+    =~_|]/i", $web))
+                {
+                    $webErr = 'invalid URL';
+                }
+            }
+
+            if(empty($_POST['comment']))
+            {
+                $comment = "";
+            }
+            else
+            {
+                $comment = valid($_POST['comment']);
+            }
+
+            if(empty($_POST['gender']))
+            {
+                $genderErr = 'Gender is required.';
+            }
+            else
+            {
+                $gender = valid($_POST['gender']);
+            }
+        }
+    ?>
+
+    <h2>PHP valid3</h2>
+    <p><span class="error">* Must input field.</span></p>
+    <form method="post" action="<?php echo htmlSpecialChars($_SERVER['PHP_SELF']);?>">
+        Name: <input type="text" name="name">
+        <span class="error">* <?php echo $nameErr;?></span>
+        <br><br>
+
+        Email: <input type="text" name="mail">
+        <span class="error">* <?php echo $mailErr;?></span>
+        <br><br>
+
+        Website: <input type="text" name="web">
+        <span class="error">* <?php echo $webErr; ?></span>
+        <br><br>
+
+        Comment: <textarea name="comment" rows="6" cols="40"></textarea>
+        <br><br>
+
+        Gender:
+        <input type="radio" name="gender" value="female">Female
+        <input type="radio" name="gender" value="male">Male
+        <span class="error">* <?php echo $genderErr;?></span>
+        <br><br>
+
+        <input type="submit" name="submit" value="Submit">
+
+    </form>
+
+    <h2>Your input:</h2>
+    <?php
+        echo $name, "<br>";
+         echo $mail, "<br>";
+         echo $web, "<br>";
+         echo $comment, "<br>";
+         echo $gender;
+    ?>
+
+</body>
+</html>

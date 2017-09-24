@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Valid input</title>
+</head>
+<body>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+        Name: <input type="text" name="name">
+        <br><br>
+        E-Mail: <input type="text" name="mail">
+        <br><br>
+        Website:  <input type="text" name="web">
+        <br><br>
+        Comment: <textarea name="comment" rows="5" cols="40"></textarea>
+        <br><br>
+        Gender:
+        <input type="radio" name="gender" value="female">Female
+        <input type="radio" name="gender" value="male">Male
+        <br><br>
+
+        <input type="submit" value="submit">
+    </form>
+
+    <?php
+    $name = $mail = $web = $comment = $gender = "";
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
+        $name = valid($_POST['name']);
+        $mail = valid($_POST['mail']);
+        $web = valid($_POST['web']);
+        $comment = valid($_POST['comment']);
+        $gender = valid($_POST['gender']);
+    }
+
+    function valid($input)
+    {
+        $input = trim($input);
+        $input = stripslashes($input);
+        $input = htmlspecialchars($input);
+        return $input;
+    }
+
+    echo "<h2>Your Input:</h2>";
+    echo $name, "<br>";
+    echo $mail, "<br>";
+    echo $web, "<br>";
+    echo $comment, "<br>";
+    echo $gender, "<br>";
+    ?>
+</body>
+</html>

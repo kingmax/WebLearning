@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Valid input2</title>
+    <style>
+        .error {color:#ff0000;}
+    </style>
+</head>
+<body>
+    <?php
+        $name = $mail = $web = $comment = $gender = "";
+        $nameErr = $mailErr = "";
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+            if(empty($_POST['name']))
+            {
+                $nameErr = "Name is must field";
+            }
+            else
+            {
+                $name = valid($_POST['name']);
+            }
+
+            if(empty($_POST['mail']))
+            {
+                $mailErr = "Mail is must field";
+            }
+            else
+            {
+                $mail = valid($_POST['mail']);
+            }
+
+            $web = valid($_POST['web']);
+            $comment = valid($_POST['comment']);
+            $gender = valid($_POST['gender']);
+        }
+
+        function valid($input)
+        {
+            $out = trim($input);
+            $out = stripSlashes($out);
+            $out = htmlSpecialChars($out);
+            return $out;
+        }
+    ?>
+
+    <h2>PHP Valid Input2</h2>
+    <p><span class="error">* must field</span></p>
+
+    <form method="post" action="<?php echo htmlSpecialChars($_SERVER['PHP_SELF']);?>">
+        Name: <input type="text" name="name">
+        <span class="error">* <?php echo $nameErr;?></span>
+        <br><br>
+
+        Email: <input type="text" name="mail">
+        <span class="error">* <?php echo $mailErr;?></span>
+        <br><br>
+
+        Website: <input type="text" name="web">
+        <br><br>
+
+        Comment: <textarea name="comment" rows="6" cols="40"></textarea>
+        <br><br>
+
+        Gender:
+        <input type="radio" name="gender" value="Female">Female
+        <input type="radio" name="gender" value="Male">Male
+        <br><br>
+
+        <input type="submit" value="Submit">
+        <p>
+            <h2>Your Input:</h2>
+            <br>
+            <?php
+            echo $name, "<br>";
+                echo $mail, "<br>";
+                echo $web, "<br>";
+                echo $comment, "<br>";
+                echo $gender, "<br>";
+            ?>
+        </p>
+    </form>
+
+</body>
+</html>
